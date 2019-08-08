@@ -2,9 +2,10 @@
 'use strict';
 
 const cli = require('cli')
+const process = require('process')
 
-process.stdout(process.cwd)
+console.log('CWD: ', process.cwd())
 
-cli.exec('node ./node_modules/openapi-mockserver/dist/idnex.js', function() {
-  process.stdout('Starting openapi-mockserver app')
+cli.exec('node node_modules/openapi-mockserver/dist/index.js', (lines) => {
+  console.log(lines)
 });
