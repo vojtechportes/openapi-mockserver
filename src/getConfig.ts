@@ -14,6 +14,8 @@ export const getConf = (dir: string): Conf => {
   const explorer = cosmiconfig('openapiMock')
   const config = explorer.searchSync(dir) || {}
 
+  console.log(explorer.searchSync(dir))
+
   const defaults: Conf = {
     prependUrl: "",
     port: 3500,

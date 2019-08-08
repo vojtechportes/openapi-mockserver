@@ -1,12 +1,37 @@
 #!/usr/bin/env node
 'use strict';
 
-const cli = require('cli')
-const process = require('process')
+// @ts-ignore
+process.exitCode = 0;
 
-console.log('CWD: ', process.cwd())
-console.log(__dirname, __filename)
+/**
+ * @param {string} command process to run
+ * @param {string[]} args commandline arguments
+ * @returns {Promise<void>} promise
+ */
+const runCommand = (command, args) => {
+	const cp = require("child_process");
+	return new Promise((resolve, reject) => {
+		const executedCommand = cp.spawn(command, args, {
+			stdio: "inherit",
+			shell: true
+		});
 
-cli.exec('node node_modules/openapi-mockserver/dist/index.js', (lines) => {
-  console.log(lines)
-});
+		executedCommand.on("error", error => {
+			reject(error);
+		});
+
+		executedCommand.on("exit", code => {
+			if (code === 0) {
+				resolve();
+			} else {
+				reject();
+			}
+		});
+  });
+}
+
+const path = require('path')
+const modulePath = path.resolve(__dirname, './../', 'dist/index.js')
+
+runCommand('node', [modulePath])
