@@ -1,6 +1,7 @@
 {
   "name": "openapi-mockserver",
   "version": "0.1.0",
+  "license": "MIT",
   "author": {
     "name": "Vojtech Portes"
   },
@@ -31,13 +32,5 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack --config webpack.dev.js"
   },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "files": [
-    "/dist"
-  ],
-  "bin": {
-    "openapi-mockserver": "./dist/index.js"
-  }
+  "bin": "./bin/openapi-mockserver.js"
 }
