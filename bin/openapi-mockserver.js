@@ -3,8 +3,8 @@
 
 const cli = require('cli')
 
-proccess.stdout(proccess.cwd())
+process.stdout(process.cwd)
 
-cli.exec('node node_modules/openapi-mockserver/dist/idnex.js', function() {
+cli.exec('node ./node_modules/openapi-mockserver/dist/idnex.js', function() {
   process.stdout('Starting openapi-mockserver app')
 });
