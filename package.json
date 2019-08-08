@@ -30,5 +30,14 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack --config webpack.dev.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/dist"
+  ],
+  "bin": {
+    "openapi-mockserver": "./dist/index.js"
   }
 }
