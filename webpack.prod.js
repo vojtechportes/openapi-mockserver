@@ -14,6 +14,10 @@ module.exports = {
   },
   watch: false,
   externals: [nodeExternals()],
+  node: {
+    __dirname: false,
+    __filename: false,
+  },    
   module: {
     rules: [
       {

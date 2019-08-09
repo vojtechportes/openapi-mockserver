@@ -1,11 +1,10 @@
 import express, { Request, Response } from "express";
-import { getConf } from "./getConfig";
+import { getConfig } from "./utils/getConfig";
 // import { setApiRoutes } from './setApiRoutes'
-import process from 'process'
+import { cwd } from './utils/getCwd'
 
-console.log()
+const config = getConfig(cwd);
 
-const config = getConf(__dirname);
 const app = express();
 
 app.listen(config.port, () => {
@@ -16,6 +15,6 @@ app.listen(config.port, () => {
 
 app.get("*", async (req: Request, res: Response) => {
   res.send({
-    message: 'test'
-  })
+    message: "test"
+  });
 });

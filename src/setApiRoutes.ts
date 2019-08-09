@@ -1,8 +1,8 @@
 import { Application } from 'express'
 import { getYamlData } from './getYamlData'
-import { Conf } from './getConfig'
+import { ConfigProps } from './utils/getConfig'
 
-export const setApiRoutes = async (app: Application, config: Conf) => {
+export const setApiRoutes = async (app: Application, config: ConfigProps) => {
   const data = await getYamlData(config.definition) as any;
 
   try {

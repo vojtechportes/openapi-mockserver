@@ -1,5 +1,6 @@
 const path = require("path");
 const NodemonWebpackPlugin = require("nodemon-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.ts",
@@ -22,6 +23,10 @@ module.exports = {
       }
     ]
   },
+  node: {
+    __dirname: false,
+    __filename: false,
+  },  
   plugins: [
     // All options are optional
     new NodemonWebpackPlugin()
